@@ -38,6 +38,9 @@ public class CustomerUserDetailsService implements UserDetailsService {
 
 
     public com.cms.app.POJO.User getUserDetail() {
+//        com.cms.app.POJO.User user = userDetail;
+//        user.setPassword(null);
+//        return user;
         return userDetail;
     }
 }
