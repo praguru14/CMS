@@ -22,12 +22,13 @@ public class JwtFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
 
+    @Autowired
     private CustomerUserDetailsService customerUserDetailsService;
 
-    @Bean
-    public  CustomerUserDetailsService userDetailsService(){
-        return new CustomerUserDetailsService();
-    }
+//    @Bean
+//    public  CustomerUserDetailsService userDetailsService(){
+//        return new CustomerUserDetailsService();
+//    }
     Claims claims = null;
 
     private String userName = null;
