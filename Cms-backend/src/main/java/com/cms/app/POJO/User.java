@@ -1,6 +1,8 @@
 package com.cms.app.POJO;
 
 import javax.persistence.*;
+
+import jdk.jfr.Name;
 import lombok.Data;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -9,6 +11,7 @@ import java.io.Serializable;
 
 
 @NamedQuery(name = "User.findByEmailId", query = "select u from User u where u.email = :email")
+@NamedQuery(name="User.getAllUser",query = "select new com.cms.app.wrapper.UserWrapper(u.id,u.name,u.contactNumber,u.email,u.status) from User u where u.role = 'user'")
 @Entity
 @DynamicInsert
 @DynamicUpdate

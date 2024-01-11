@@ -11,6 +11,7 @@ import com.cms.app.Service.UserService;
 import com.cms.app.constants.CmsConstant;
 import com.cms.app.doa.UserDao;
 import com.cms.app.utils.CmsUtils;
+import com.cms.app.wrapper.UserWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -75,9 +78,18 @@ public class UserServiceImpl implements UserService {
             Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestMap.get("email"),requestMap.get("password")));
             if(auth.isAuthenticated()){
                 //extract role and status
-                if(customerUserDetailsService.getUserDetail().getStatus().equalsIgnoreCase("true")){
-                    return new ResponseEntity<>("{\"token\":\""+jwtUtil.generateToken(customerUserDetailsService.getUserDetail().getEmail(),
-                            customerUserDetailsService.getUserDetail().getRole() +"\"}"),HttpStatus.OK);
+                if(customerUserDetailsService.getUserDetail().getStatus().equalsIgnoreCase("true")) {
+                    String userEmail = customerUserDetailsService.getUserDetail().getEmail();
+                    String userRole = customerUserDetailsService.getUserDetail().getRole();
+
+                    // Generate token
+                    String token = jwtUtil.generateToken(userEmail, userRole);
+
+                    // Format the JSON string manually
+                    String jsonResponse = "{\"token\":\"" + token + "\"}";
+
+                    return new ResponseEntity<>(jsonResponse, HttpStatus.OK);
+
                 }
                 else{
                     return new ResponseEntity<String >("{\"message\":\""+"Wait for admin approval"+"\"}",HttpStatus.BAD_REQUEST);
@@ -89,6 +101,21 @@ public class UserServiceImpl implements UserService {
             log.error("{}",ex);
         }
         return CmsUtils.getResponseEntity(CmsConstant.BAD_CREDENTIALS,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<List<UserWrapper>> getAllUsers() {
+        try {
+        if(jwtFilter.isAdmin()){
+            return new ResponseEntity<>(userDao.getAllUser(),HttpStatus.ACCEPTED);
+        }
+        else{
+            return new ResponseEntity<>(new ArrayList<>(),HttpStatus.UNAUTHORIZED);
+        }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<List<UserWrapper>>(new ArrayList<>(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private boolean validateSignUpMap(Map<String, String> requestMap) {
