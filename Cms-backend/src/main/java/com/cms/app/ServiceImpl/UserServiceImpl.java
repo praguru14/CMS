@@ -21,7 +21,9 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Service
 @Slf4j
@@ -136,6 +138,21 @@ public class UserServiceImpl implements UserService {
             ex.printStackTrace();
         }
         return new ResponseEntity<String>(CmsConstant.UNAUTHORIZED_ACCESS,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<List<UserWrapper>> getAllUsers() {
+        try {
+        if(jwtFilter.isAdmin()){
+            return new ResponseEntity<>(userDao.getAllUser(),HttpStatus.ACCEPTED);
+        }
+        else{
+            return new ResponseEntity<>(new ArrayList<>(),HttpStatus.UNAUTHORIZED);
+        }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<List<UserWrapper>>(new ArrayList<>(),HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private boolean validateSignUpMap(Map<String, String> requestMap) {

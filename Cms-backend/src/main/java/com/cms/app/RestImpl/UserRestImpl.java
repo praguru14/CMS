@@ -63,4 +63,14 @@ public class UserRestImpl implements UserRest {
 
         return CmsUtils.getResponseEntity(CmsConstant.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-}
+
+    @Override
+//    public ResponseEntity<List<UserWrapper>> getAllUsers() {
+//        try {
+//            return userService.getAllUsers();
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//        return new ResponseEntity<List<UserWrapper>>(new ArrayList<>(),HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
+//}
