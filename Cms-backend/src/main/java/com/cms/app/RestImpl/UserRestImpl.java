@@ -63,6 +63,39 @@ public class UserRestImpl implements UserRest {
 
         return CmsUtils.getResponseEntity(CmsConstant.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @Override
+    public ResponseEntity<String> checkToken() {
+        try{
+            return userService.checkToken();
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return CmsUtils.getResponseEntity(CmsConstant.SOMETHING_WENT_WRONG,HttpStatus.FORBIDDEN);
+    }
+
+    @Override
+    public ResponseEntity<String> changePassword(Map<String, String> requestmap) {
+        try{
+            return userService.changePassword(requestmap);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return CmsUtils.getResponseEntity(CmsConstant.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @Override
+    public ResponseEntity<String> forgetPassword(Map<String, String> requestmap) {
+        try{
+            return userService.forgetPassword(requestmap);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return CmsUtils.getResponseEntity(CmsConstant.SOMETHING_WENT_WRONG,HttpStatus.FORBIDDEN);
+    }
 }
 
 //    @Override

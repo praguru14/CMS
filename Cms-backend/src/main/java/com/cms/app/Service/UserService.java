@@ -13,6 +13,9 @@ public interface UserService {
     ResponseEntity<String> login(Map<String,String> requestMap);
     ResponseEntity<List<UserWrapper>> getAllUsers();
     public ResponseEntity<String> update(@RequestBody Map<String,String> requestmap);
+    ResponseEntity<String> checkToken();
+    public ResponseEntity<String> changePassword(@RequestBody Map<String,String> requestmap);
+    public ResponseEntity<String> forgetPassword(@RequestBody Map<String,String> requestmap);
 
 }
 
