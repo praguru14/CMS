@@ -11,6 +11,7 @@ import com.cms.app.Service.UserService;
 import com.cms.app.constants.CmsConstant;
 import com.cms.app.doa.UserDao;
 import com.cms.app.utils.CmsUtils;
+import com.cms.app.utils.EmailUtils;
 import com.cms.app.wrapper.UserWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,9 @@ public class UserServiceImpl implements UserService {
     JwtFilter jwtFilter;
     @Autowired
     JwtUtil jwtUtil;
+
+    @Autowired
+    EmailUtils emailUtils;
 
     @Autowired
     CustomerUserDetailsService customerUserDetailsService;
@@ -70,7 +74,6 @@ public class UserServiceImpl implements UserService {
     public ResponseEntity<String> login(Map<String, String> requestMap) {
         log.info("Inside Login");
         try{
-
             //get pass and email
             Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestMap.get("email"),requestMap.get("password")));
             if(auth.isAuthenticated()){
@@ -118,10 +121,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<String> update(Map<String, String> requestmap) {
         try {
+        //System.out.println(jwtFilter.getClass());
+
             if(jwtFilter.isAdmin()){
+                //System.out.println("I am admin" +jwtFilter.getCurrentUser());
+
               Optional<User> optionalUser= userDao.findById(Integer.parseInt(requestmap.get("id"))); // convert ID string to int
                 if(optionalUser.isPresent()){
                 userDao.updateStatus(requestmap.get("status"), Integer.valueOf(requestmap.get("id")));
+                sendMailToAllAdmin(requestmap.get("status"),optionalUser.get().getEmail(),userDao.getAllAdmins());
                 return CmsUtils.getResponseEntity("User status updated",HttpStatus.ACCEPTED);
 
                 }
@@ -130,12 +138,35 @@ public class UserServiceImpl implements UserService {
                 }
             }
             else{
+               // System.out.println("I am not admin");
+               // System.out.println(jwtFilter.getCurrentUser());
+               // System.out.println(customerUserDetailsService.getUserDetail().getRole());
                 return new ResponseEntity<String>(CmsConstant.SOMETHING_WENT_WRONG,HttpStatus.INTERNAL_SERVER_ERROR);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return new ResponseEntity<String>(CmsConstant.UNAUTHORIZED_ACCESS,HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    private void sendMailToAllAdmin(String status, String user, List<String> allAdmins) {
+
+        allAdmins.remove(jwtFilter.getCurrentUser());
+        if(status!=null && status.equalsIgnoreCase("true")){
+        emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),
+                "Account Approved",
+                "USER:-"+user+"\n is approved by \nADMIN:-"+jwtFilter.getCurrentUser(),
+                allAdmins
+                );
+        }
+        else{
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),
+                    "Account Disabled",
+                    "USER:-"+user+"\n is disabled by \nADMIN:-"+jwtFilter.getCurrentUser(),
+                    allAdmins
+            );
+        }
+
     }
 
     @Override

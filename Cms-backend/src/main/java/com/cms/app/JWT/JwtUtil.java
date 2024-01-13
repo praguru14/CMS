@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 @Service
 public class JwtUtil {
-    private String secret="HRlELXqpSB";
+    private String secret="HRlELXqpSBjhgfyfhthtyredty";
 
 
     //extract expiration and user name
