@@ -149,6 +149,7 @@ public class UserServiceImpl implements UserService {
         return new ResponseEntity<String>(CmsConstant.UNAUTHORIZED_ACCESS,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+
     @Override
     public ResponseEntity<String> checkToken() {
         try{
