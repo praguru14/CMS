@@ -149,6 +149,26 @@ public class UserServiceImpl implements UserService {
         return new ResponseEntity<String>(CmsConstant.UNAUTHORIZED_ACCESS,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    private void sendMailToAllAdmin(String status, String user, List<String> allAdmins) {
+
+        allAdmins.remove(jwtFilter.getCurrentUser());
+        if(status!=null && status.equalsIgnoreCase("true")){
+        emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),
+                "Account Approved",
+                "USER:-"+user+"\n is approved by \nADMIN:-"+jwtFilter.getCurrentUser(),
+                allAdmins
+                );
+        }
+        else{
+            emailUtils.sendSimpleMessage(jwtFilter.getCurrentUser(),
+                    "Account Disabled",
+                    "USER:-"+user+"\n is disabled by \nADMIN:-"+jwtFilter.getCurrentUser(),
+                    allAdmins
+            );
+        }
+
+    }
+
     @Override
     public ResponseEntity<String> checkToken() {
         try{
