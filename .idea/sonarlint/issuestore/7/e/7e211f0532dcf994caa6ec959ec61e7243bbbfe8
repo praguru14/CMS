@@ -1,0 +1,18 @@
+
+v
+java:S2293B"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÓÃ‡û8Ï¼ÎºÑ1
+O
+java:S1199?"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8Ğ¼ÎºÑ1
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ëûO8Ñ¼ÎºÑ1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä¼ÎºÑ1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä¼ÎºÑ1
+_
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä¼ÎºÑ1
+_
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä¼ÎºÑ1
+_
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä¼ÎºÑ1
+_
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8ä¼ÎºÑ1
