@@ -14,6 +14,8 @@ public class CmsConstant {
 
     public static final String USERID_NOT_FOUND = "UserId doesnt exist";
     public static final String TOKEN_ERROR = "Token Error";
+    public static final String PRODUCT_ID_DOESNT_EXIST = "Product ID doesn't exist" ;
+    public static final String UPDATED_SUCCESSFULLY ="Updated Successfully" ;
 
 
 //    public ResponseEntity<String> tryCatch(){
