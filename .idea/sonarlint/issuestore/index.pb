@@ -37,17 +37,3 @@ f
 6src/main/java/com/cms/app/Service/CategoryService.java,0\c\0c8f6e6800d4bfb1fef86e83e0f54d29fab16021
 ]
 -src/main/java/com/cms/app/utils/CmsUtils.java,d\6\d62fe24fea7453812e4217ce67c7f803eb01c12e
-[
-+src/main/java/com/cms/app/POJO/Product.java,3\e\3e597a890e4af1f504724eac955fad15333003cb
-]
--src/main/java/com/cms/app/doa/ProductDao.java,5\3\534050923cf3fca5ba951f6fb895cc822a90f18b
-_
-/src/main/java/com/cms/app/REST/ProductRest.java,a\5\a5ba2819ea8b1f744b79df69477b5d3b73b8474b
-c
-3src/main/java/com/cms/app/RestImpl/ProductImpl.java,2\4\249429e24105e5869d5822f4fc1f0d675dce238e
-e
-5src/main/java/com/cms/app/Service/ProductService.java,5\1\51f87e802b6e5072391d3875b5656fba4e21e20c
-m
-=src/main/java/com/cms/app/ServiceImpl/ProductServiceImpl.java,1\e\1e98db42f56261848aa3edf3c3ce2dc2f7f6e4d5
-c
-3src/main/java/com/cms/app/utils/ProductWrapper.java,0\2\028a710a5d581c26e20a0682409b72f3f12f6c60
