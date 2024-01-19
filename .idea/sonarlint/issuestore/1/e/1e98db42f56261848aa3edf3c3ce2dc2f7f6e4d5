@@ -1,0 +1,26 @@
+
+K
+java:S3740h"/Provide the parametrized type for this generic.(†óµw8µÌ±•Ò1
+Q
+java:S3740}"/Provide the parametrized type for this generic.(Ş¸ Ÿùÿÿÿÿ8µÌ±•Ò1
+v
+java:S2293="YReplace the type specification in this constructor call with the diamond operator ("<>").(å’í­8µÌ±•Ò1
+w
+java:S1192a"UDefine a constant instead of duplicating this literal "Something Went Wrong" 3 times.(ø’æ•úÿÿÿÿ8¶Ì±•Ò1
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ëûO8·Ì±•Ò1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÊÌ±•Ò1
+_
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÊÌ±•Ò1
+_
+java:S6813$"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÊÌ±•Ò1
+_
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÊÌ±•Ò1
+_
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÊÌ±•Ò1
+_
+java:S6813,"BRemove this field injection and use constructor injection instead.(êæÄŞ8ÊÌ±•Ò1
+^	java:S125“"<This block of commented-out lines of code should be removed.(–Š‚†ûÿÿÿÿ8ÓÌ±•Ò1
+Z
+java:S1128
+"8Remove this unused import 'com.cms.app.doa.CategoryDao'.(·í†üÿÿÿÿ8şŒĞ•Ò1

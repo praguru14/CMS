@@ -1,0 +1,26 @@
+
+q
+java:S1192W"ODefine a constant instead of duplicating this literal "productDetails" 3 times.(Ç†îûÿÿÿÿ8½¸®Ò1
+p
+java:S1192C"NDefine a constant instead of duplicating this literal "contactNumber" 3 times.(®Õš²ûÿÿÿÿ8½¸®Ò1
+c
+java:S1192D"FDefine a constant instead of duplicating this literal "email" 3 times.(’æıÉ8½¸®Ò1
+n
+java:S1192]"LDefine a constant instead of duplicating this literal "totalAmount" 3 times.(ØÉé“şÿÿÿÿ8½¸®Ò1
+j
+java:S1192E"NDefine a constant instead of duplicating this literal "paymentMethod" 3 times.(ØŠˆ8½¸®Ò1
+J
+java:S54119"(Use a primitive boolean expression here.(úÆÿ“ùÿÿÿÿ8¾¸®Ò1
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ëûO8¿¸®Ò1
+_
+java:S6813""BRemove this field injection and use constructor injection instead.(êæÄŞ8Å¸®Ò1
+_
+java:S6813%"BRemove this field injection and use constructor injection instead.(êæÄŞ8Å¸®Ò1
+_
+java:S6813("BRemove this field injection and use constructor injection instead.(êæÄŞ8Å¸®Ò1
+_
+java:S6813*"BRemove this field injection and use constructor injection instead.(êæÄŞ8Å¸®Ò1
+_
+java:S6813-"BRemove this field injection and use constructor injection instead.(êæÄŞ8Å¸®Ò1
+_
+java:S68130"BRemove this field injection and use constructor injection instead.(êæÄŞ8Å¸®Ò1

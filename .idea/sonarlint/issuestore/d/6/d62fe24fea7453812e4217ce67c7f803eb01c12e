@@ -1,3 +1,11 @@
 
-o
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ğ“¦
+v
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ğ“¦8øÕï­Ò1
+ƒ
+java:S1488 "aImmediately return this expression instead of assigning it to the temporary variable "jsonArray".(‘Î¤Ÿÿÿÿÿÿ8ûÕï­Ò1
+S
+java:S1128"6Remove this unused import 'com.google.gson.JsonArray'.(ÎöêŠ8Öï­Ò1
+l
+java:S1128"ORemove this unused import 'net.bytebuddy.description.method.MethodDescription'.(‰šİ¨8Öï­Ò1
+K
+java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8Öï­Ò1

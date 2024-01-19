@@ -17,6 +17,8 @@ public class CmsConstant {
     public static final String PRODUCT_ID_DOESNT_EXIST = "Product ID doesn't exist" ;
     public static final String UPDATED_SUCCESSFULLY ="Updated Successfully" ;
 
+    public static final String STORE_LOCATION = "C:\\Users\\pragu\\OneDrive\\Documents\\CMS";
+
 
 //    public ResponseEntity<String> tryCatch(){
 //        try{
