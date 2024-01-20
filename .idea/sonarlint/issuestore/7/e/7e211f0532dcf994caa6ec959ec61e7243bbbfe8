@@ -1,17 +1,17 @@
 
 O
-java:S1199?"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8÷”ß…Ò1
-u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ëûO8÷”ß…Ò1
+java:S1199?"-Extract this nested code block into a method.(ÒÌâ–øÿÿÿÿ8½â×»Ò1
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ëûO8¾â×»Ò1
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‡•ß…Ò1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8õâ×»Ò1
 _
-java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8‡•ß…Ò1
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8öâ×»Ò1
 _
-java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄŞ8‡•ß…Ò1
+java:S6813!"BRemove this field injection and use constructor injection instead.(êæÄŞ8öâ×»Ò1
 _
-java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8‡•ß…Ò1
+java:S6813#"BRemove this field injection and use constructor injection instead.(êæÄŞ8öâ×»Ò1
 _
-java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8‡•ß…Ò1
+java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ8öâ×»Ò1
 _
-java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8‡•ß…Ò1
-L	java:S106D"+Replace this use of System.out by a logger.(¹–ãÿÿÿÿÿ8’“†Ò1
+java:S6813)"BRemove this field injection and use constructor injection instead.(êæÄŞ8öâ×»Ò1
+L	java:S106D"+Replace this use of System.out by a logger.(¹–ãÿÿÿÿÿ8€ã×»Ò1

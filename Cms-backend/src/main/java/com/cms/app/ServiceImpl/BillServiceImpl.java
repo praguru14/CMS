@@ -15,6 +15,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.pdfbox.io.IOUtils;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,8 +24,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
-import java.io.FileOutputStream;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Service
@@ -104,6 +108,77 @@ public class BillServiceImpl implements BillService {
             ex.printStackTrace();
         }
         return new ResponseEntity<>(CmsConstant.TOKEN_ERROR, HttpStatus.FORBIDDEN);
+    }
+
+    @Override
+    public ResponseEntity<List<Bill>> getAllBills() {
+        try{
+           List<Bill> L1 = new ArrayList<>();
+           if(jwtFilter.isAdmin()){
+               L1 = billDao.getAllBills();
+            log.info("Getting All Bills");
+           } else{
+               L1 = billDao.getBillByUserName(jwtFilter.getCurrentUser());
+               log.info("Getting bills by user");
+           }
+            return new ResponseEntity<>(L1,HttpStatus.FORBIDDEN);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<>(new ArrayList<>(),HttpStatus.FORBIDDEN);
+    }
+
+    @Override
+    public ResponseEntity<byte[]> getPdf(Map<String, Object> requestMap) {
+        try{
+            log.info("Inside getPdf :{}",requestMap);
+            byte[] bytes = new byte[0];
+            if(!requestMap.containsKey("uuid") && validateRequestMap(requestMap)){
+                return new ResponseEntity<>(bytes,HttpStatus.BAD_REQUEST);
+            }
+            String filePath = CmsConstant.STORE_LOCATION +"\\"+(String) requestMap.get("uuid")+".pdf";
+
+            if(CmsUtils.isFileExist(filePath)){
+                bytes = getByteArray(filePath);
+                return new ResponseEntity<>(bytes,HttpStatus.OK);
+            }
+            else{
+                requestMap.put("isGenerate",false);
+                generateReport(requestMap);
+                bytes = getByteArray(filePath);
+                return new ResponseEntity<>(bytes,HttpStatus.OK);
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public ResponseEntity<String> deleteBill(Integer id) {
+        try{
+            Optional optional = billDao.findById(id);
+            if(!optional.isEmpty()){
+                billDao.deleteById(id);
+                return CmsUtils.getResponseEntity("Bill Deleted Successfully",HttpStatus.OK);
+            }
+            return CmsUtils.getResponseEntity("Bill id doesnt exist",HttpStatus.OK);
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return new ResponseEntity<>("Error",HttpStatus.FORBIDDEN);
+    }
+
+    private byte[] getByteArray(String filePath) throws IOException {
+        File initial = new File(filePath);
+        InputStream targetStream = new FileInputStream(initial);
+        byte[] byteArray = IOUtils.toByteArray(targetStream);
+        targetStream.close();
+        return byteArray;
+
     }
 
     private void addRows(PdfPTable table, Map<String, Object> mapFromJson) {
