@@ -39,7 +39,7 @@ public class JwtFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         //bypass userlogin , signup and forget password
-        if(httpServletRequest.getServletPath().matches("/user/login | /user/forgetPassword | /user/signup ")){
+        if(httpServletRequest.getServletPath().matches("/user/login | /user/forgetPassword | /user/signup | /actuator ")){
             filterChain.doFilter(httpServletRequest,httpServletResponse); //bypass
         }
         else{

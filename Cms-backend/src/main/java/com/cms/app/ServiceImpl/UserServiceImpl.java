@@ -3,6 +3,7 @@ package com.cms.app.ServiceImpl;
 
 
 
+import com.cms.app.ExceptionHandling.CustomException;
 import com.cms.app.JWT.CustomerUserDetailsService;
 import com.cms.app.JWT.JwtFilter;
 import com.cms.app.JWT.JwtUtil;
@@ -51,6 +52,9 @@ public class UserServiceImpl implements UserService {
 
             if(validateSignUpMap(requestMap)){
                 User user = userDao.findByEmailId(requestMap.get("email"));
+                if(requestMap.get("name").length()<3){
+                    throw new CustomException.CustomValidationException("Value must be at least 5 characters long");
+                }
                 if(Objects.isNull(user)){
                     userDao.save(getUserFromMap(requestMap));
                     return CmsUtils.getResponseEntity("SignUp is done",HttpStatus.OK);
