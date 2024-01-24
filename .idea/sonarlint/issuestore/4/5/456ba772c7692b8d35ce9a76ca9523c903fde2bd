@@ -1,6 +1,6 @@
 
 K
-java:S3740¢"/Provide the parametrized type for this generic.(Á¤øÿÿÿÿ
+java:S3740¤"/Provide the parametrized type for this generic.(Á¤øÿÿÿÿ
 j
 java:S1192["ODefine a constant instead of duplicating this literal "productDetails" 3 times.(Ç†îûÿÿÿÿ
 i
@@ -17,7 +17,7 @@ f	java:S117t"QRename this local variable to match the regular expression '^[a-
 C
 java:S5411="(Use a primitive boolean expression here.(úÆÿ“ùÿÿÿÿ
 D
-java:S5411"(Use a primitive boolean expression here.(±Ôõ¬şÿÿÿÿ
+java:S5411"(Use a primitive boolean expression here.(±Ôõ¬şÿÿÿÿ
 n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ëûO
 X
 java:S6813&"BRemove this field injection and use constructor injection instead.(êæÄŞ
@@ -34,4 +34,4 @@ java:S68134"BRemove this field injection and use constructor injection instead.
 L
 java:S1854t"6Remove this useless assignment to local variable "L1".(÷ß°É
 B
-java:S1075Œ"&Remove this hard-coded path-delimiter.(–­Æ°ûÿÿÿÿ
+java:S1075"&Remove this hard-coded path-delimiter.(–­Æ°ûÿÿÿÿ

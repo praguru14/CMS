@@ -134,12 +134,14 @@ public class BillServiceImpl implements BillService {
         try{
             log.info("Inside getPdf :{}",requestMap);
             byte[] bytes = new byte[0];
+
             if(!requestMap.containsKey("uuid") && validateRequestMap(requestMap)){
                 return new ResponseEntity<>(bytes,HttpStatus.BAD_REQUEST);
             }
             String filePath = CmsConstant.STORE_LOCATION +"\\"+(String) requestMap.get("uuid")+".pdf";
 
             if(CmsUtils.isFileExist(filePath)){
+
                 bytes = getByteArray(filePath);
                 return new ResponseEntity<>(bytes,HttpStatus.OK);
             }
@@ -195,12 +197,12 @@ public class BillServiceImpl implements BillService {
 
         log.info("Inside Add table header");
 
-        Stream.of("Name,","Category","Quantity","Price","Sub total").forEach(columnTitle->{
+        Stream.of("Name","Category","Quantity","Price","Sub total").forEach(columnTitle->{
             PdfPCell header = new PdfPCell();
             header.setBackgroundColor(BaseColor.LIGHT_GRAY);
             header.setBorderWidth(2);
             header.setPhrase(new Phrase(columnTitle));
-            header.setBackgroundColor(BaseColor.YELLOW);
+            header.setBackgroundColor(BaseColor.RED);
             header.setHorizontalAlignment(Element.ALIGN_CENTER);
             header.setVerticalAlignment(Element.ALIGN_CENTER);
             table.addCell(header);
