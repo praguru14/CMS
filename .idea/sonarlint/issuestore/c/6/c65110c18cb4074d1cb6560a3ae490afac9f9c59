@@ -1,0 +1,18 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°…ÄÈùÿÿÿÿ8òÜ¬£Ô1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ƒİ¬£Ô1
+_
+java:S6813"BRemove this field injection and use constructor injection instead.(êæÄŞ8ƒİ¬£Ô1
+a
+java:S1874"DRemove this use of "WebSecurityConfigurerAdapter"; it is deprecated.(Ë¶Ï“8…İ¬£Ô1
+`
+java:S5344 ">Don't use the default "PasswordEncoder" relying on plain-text.(ÿŠá„øÿÿÿÿ8†İ¬£Ô1
+X
+java:S1874%";Remove this use of "NoOpPasswordEncoder"; it is deprecated.(å‰ö8ˆİ¬£Ô1
+i
+java:S6830("GRename this bean to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œïºãûÿÿÿÿ8‰İ¬£Ô1
+}
+java:S1128"[Remove this unused import 'org.springframework.boot.autoconfigure.EnableAutoConfiguration'.(æèşŞøÿÿÿÿ8ˆÅÜ£Ô1
+‹
+java:S1128"nRemove this unused import 'org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration'.(Ûæ„ƒ8ˆÅÜ£Ô1

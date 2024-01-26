@@ -1,10 +1,49 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Welcome to CMS Application</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prafull's Eatery</title>
+
+    <!-- Thymeleaf link for CSS -->
+    <link rel="stylesheet" href="/static/css/styles.css" />
+
+
+    <!-- Thymeleaf script for JS -->
+    <script src="/static/js/main.js"></script>
 </head>
+
 <body>
-<h1 th:text="'Hello, welcome to CMS application'">Hello, welcome to CMS application</h1>
+
+<header>
+    <h1>Welcome to Prafull's Eatery</h1>
+</header>
+
+<nav>
+    <!-- Your navigation links go here -->
+</nav>
+
+<section>
+    <h2>Newsletter Signup</h2>
+
+    <!-- Signup Form -->
+    <form action="/subscribe" method="post" th:action="@{/subscribe}" th:object="${newsletter}">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required th:field="*{email}">
+
+        <button type="submit">Subscribe</button>
+    </form>
+</section>
+
+<section>
+    <!-- Your main content goes here -->
+</section>
+
+<footer>
+    <p>&copy; 2024 Prafull's Eatery. All rights reserved.</p>
+</footer>
+
 </body>
+
 </html>

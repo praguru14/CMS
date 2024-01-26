@@ -1,6 +1,8 @@
 package com.cms.app.JWT;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +19,7 @@ import org.springframework.web.cors.CorsConfiguration;
 
 @Configuration
 @EnableWebSecurity
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -47,7 +50,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/","/user/login","/user/signup","/user/forgotPassword","/actuator/**")
+                .antMatchers("/swagger-resources/**","/swagger/**","/v3/**",
+                        "/swagger-ui.html",
+                        "/v2/api-docs",
+                        "/webjars/**","/swagger-ui/**","/","/user/login","/user/signup","/user/forgotPassword","/actuator/**","/css/**", "/js/**", "/images/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
