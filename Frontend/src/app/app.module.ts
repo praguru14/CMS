@@ -16,6 +16,8 @@ import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { NgxUiLoaderConfig, NgxUiLoaderModule, SPINNER } from 'ngx-ui-loader';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 
 const ngxuiLoaderConfig:NgxUiLoaderConfig={
@@ -49,7 +51,9 @@ const ngxuiLoaderConfig:NgxUiLoaderConfig={
     MaterialModule,
     FlexLayoutModule,
     SharedModule,
+    MatDialogModule,
     HttpClientModule,
+    MatIconModule,
     NgxUiLoaderModule.forRoot(ngxuiLoaderConfig)
   ],
   providers: [],

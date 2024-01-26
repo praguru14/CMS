@@ -48,4 +48,11 @@ public class User implements Serializable {
     @Column(name = "role")
     private String role;
 
+    public User(String mail, String user, String aTrue) {
+        // TODO document why this constructor is empty
+    }
+
+    public User() {
+
+    }
 }

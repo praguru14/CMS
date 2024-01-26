@@ -194,7 +194,11 @@ a {
   left: 0;
   width: 100% !important;
 }
-
+/* In your component's styles */
+::ng-deep .mat-dialog-container {
+  z-index: 1000;
+  /* Adjust the value as needed */
+}
 .mat-icon {
   vertical-align: middle;
 }

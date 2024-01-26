@@ -1,6 +1,7 @@
 package com.cms.app.ServiceImpl;
 
-
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 
 
 import com.cms.app.ExceptionHandling.CustomException;
@@ -227,6 +228,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Cacheable(value = "allUsersCache", key = "'allUsers'")
     public ResponseEntity<List<UserWrapper>> getAllUsers() {
         try {
         if(jwtFilter.isAdmin()){
